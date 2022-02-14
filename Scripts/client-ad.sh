@@ -11,5 +11,5 @@ hostnamectl set-hostname iwdm
 #Вход в домен Active Directory
 astra-ad-sssd-client -d demo.lab -u Administrator -p xxXX1234 -y
 
-#Перещагрузка
+#Перезагрузка
 echo "Please reboot"
