@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#Задаем переменные
+#Задаем переменные для настройки сети
 con="Проводное соединение 1"
 ip="192.168.10.10"
 mask="/24"
@@ -21,15 +21,15 @@ nmcli -p con show "$con" | grep ipv4
 # Перезапускаем соединение для применения новых настроек
 nmcli con down "$con" ; nmcli con up "$con"
 
-#Пользователь
+#Клиент
 
-#Устанавливаем пакеты
+#Установка пакетов
 apt install ald-client-common ald-admin fly-admin-ald-client ald-client -y
 
-#Обновляем пакеты
+#Обновление пакетов
 apt -f install -y
 
-#Вводи полное доменное имя
+#Вводим доменное имя
 hostnamectl set-hostname iwdm
 
 #НАстройки сети
