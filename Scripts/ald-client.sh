@@ -29,7 +29,7 @@ apt install ald-client-common ald-admin fly-admin-ald-client ald-client -y
 #Обновление пакетов
 apt -f install -y
 
-#Вводим доменное имя
+#Вводим краткое доменное имя
 hostnamectl set-hostname iwdm
 
 #НАстройки сети
