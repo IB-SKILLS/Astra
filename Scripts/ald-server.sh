@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#Settable initial parameters
+#Задаем переменные для настройки сети
 con="Проводное соединение 1"
 ip="192.168.10.10"
 mask="/24"
@@ -29,7 +29,7 @@ apt install fly-admin-ald-server ald-server-common smolensk-security-ald -y
 #Обновление пакетов
 apt -f install -y
 
-#Вводи полное доменное имя
+#Вводим полное доменное имя
 hostnamectl set-hostname ad.demo.lab
 
 #НАстройка сети
@@ -38,7 +38,7 @@ echo "127.0.0.1       localhost" >> /etc/hosts
 echo "192.168.10.100  ad.demo.lab     ad" >> /etc/hosts
 echo "192.168.10.20   iwdm.demo.lab   iwdm" >> /etc/hosts
 
-#Тестировка
+#Для тестов
 #ald-admin test-integrity
 #ald-client status
 
