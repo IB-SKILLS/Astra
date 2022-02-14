@@ -32,7 +32,7 @@ apt -f install -y
 #Вводим полное доменное имя
 hostnamectl set-hostname ad.demo.lab
 
-#НАстройка сети
+#Настройка сети
 echo -n > /etc/hosts
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "192.168.10.100  ad.demo.lab     ad" >> /etc/hosts
