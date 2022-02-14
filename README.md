@@ -3,8 +3,8 @@ Astra of Scripts
 
 | Script                                               | Description                                                        |
 | ---------------------------------------------------- | ------------------------------------------------------------------ |
-| [network.sh](Scripts/network.sh)                     | Lists the installed text-to-speech voices                          |
-| [iwtm.sh](Scripts/iwtm.sh)                           | Plays a short beep sound                                           |
-| [ald-server.sh](Scripts/ald-server.sh)               | Plays the given audio files                                        |
-| [ald-client.sh](Scripts/ald-client.sh)               | Plays the given audio files                                        |
-| [client-ad.sh](Scripts/client-ad.sh)                 | Plays the Happy Birthday song                                      |
+| [network.sh](Scripts/network.sh)                     | Настройка сети                                                     |
+| [iwtm.sh](Scripts/iwtm.sh)                           | Автоматизированная установка репозиториев из CD/DVD + IWTM         |
+| [ald-server.sh](Scripts/ald-server.sh)               | Автоматизированная установка Astra Linux Directory Server          |
+| [ald-client.sh](Scripts/ald-client.sh)               | Автоматизированный ввод пользователя в Astra Linux Directory       |
+| [client-ad.sh](Scripts/client-ad.sh)                 | Автоматизированный ввод пользователя в Active Directory            |
