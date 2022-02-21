@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [[ "$1" != "" ]]; then
-
+if [[ $(whoami) == "root" ]]; then
 #Установка пакетов
 apt install astra-ad-sssd-client -y
 
@@ -14,6 +14,11 @@ astra-ad-sssd-client -d demo.lab -u Administrator -p xxXX1234 -y
 read -p 'Перезагрузить ПК? ' in
 if [[ "$in" == "y" ]]; then
 sudo reboot
+fi
+
+#Выполнено не от рута
+else
+echo "Запусти скрипт через sudo!"
 fi
 
 #Забыл имя ПК
