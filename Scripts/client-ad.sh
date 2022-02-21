@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#Клиент
-
 #Установка пакетов
 apt install astra-ad-sssd-client -y
 
