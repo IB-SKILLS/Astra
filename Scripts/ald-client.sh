@@ -21,8 +21,6 @@ nmcli -p con show "$con" | grep ipv4
 # Перезапускаем соединение для применения новых настроек
 nmcli con down "$con" ; nmcli con up "$con"
 
-#Клиент
-
 #Установка пакетов
 apt install ald-client-common ald-admin fly-admin-ald-client ald-client -y
 
@@ -32,14 +30,11 @@ apt -f install -y
 #Вводим краткое доменное имя
 hostnamectl set-hostname iwdm
 
-#Нfстройки сети
+#Настройки сети
 echo -n > /etc/hosts
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "192.168.10.100  ad.demo.lab     ad" >> /etc/hosts
 echo "$ip   iwdm.demo.lab   iwdm" >> /etc/hosts
-
-#Для тестов
-#ald-client status
 
 #Входим в домен
 ald-client join
