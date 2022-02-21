@@ -21,8 +21,6 @@ nmcli -p con show "$con" | grep ipv4
 # Перезапускаем соединение для применения новых настроек
 nmcli con down "$con" ; nmcli con up "$con"
 
-#Сервер
-
 #Установка пакетов
 apt install fly-admin-ald-server ald-server-common smolensk-security-ald -y
 
@@ -37,10 +35,6 @@ echo -n > /etc/hosts
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "192.168.10.100  ad.demo.lab     ad" >> /etc/hosts
 echo "192.168.10.20   iwdm.demo.lab   iwdm" >> /etc/hosts
-
-#Для тестов
-#ald-admin test-integrity
-#ald-client status
 
 #Перезагрузка
 echo "Please reboot and set up the domain"
