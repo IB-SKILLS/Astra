@@ -37,4 +37,7 @@ echo "192.168.10.100  ad.demo.lab     ad" >> /etc/hosts
 echo "192.168.10.20   iwdm.demo.lab   iwdm" >> /etc/hosts
 
 #Перезагрузка
-echo "Please reboot and set up the domain"
+read -p 'Перезагрузить ПК? ' in
+if [[ "$in" == "y" ]]; then
+sudo reboot
+fi
