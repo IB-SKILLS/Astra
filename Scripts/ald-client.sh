@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+if [[ $(whoami) == "root" ]]; then
 
 #Задаем переменные для настройки сети
 con="Проводное соединение 1"
@@ -40,4 +41,12 @@ echo "$ip   iwdm.demo.lab   iwdm" >> /etc/hosts
 ald-client join
 
 #Перезагрузка
-echo "Please reboot"
+read -p 'Перезагрузить ПК? ' in
+if [[ "$in" == "y" ]]; then
+sudo reboot
+fi
+
+#Выполнено не от рута
+else
+echo "Запусти скрипт через sudo!"
+fi
