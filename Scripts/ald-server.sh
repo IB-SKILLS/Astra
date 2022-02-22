@@ -33,7 +33,7 @@ hostnamectl set-hostname ad.demo.lab
 #Настройка сети
 echo -n > /etc/hosts
 echo "127.0.0.1       localhost" >> /etc/hosts
-echo "192.168.10.100  ad.demo.lab     ad" >> /etc/hosts
+echo "$ip  ad.demo.lab     ad" >> /etc/hosts
 echo "192.168.10.20   iwdm.demo.lab   iwdm" >> /etc/hosts
 
 #Перезагрузка
