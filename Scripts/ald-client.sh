@@ -3,10 +3,10 @@ if [[ $(whoami) == "root" ]]; then
 
 #Задаем переменные для настройки сети
 con="Проводное соединение 1"
-ip="192.168.10.10"
+ip="192.168.10.20"
 mask="/24"
 gw="192.168.10.1"
-dns="192.168.10.100"
+dns="192.168.10.1"
 
 # Задаем адрес шлюза
 nmcli con mod "$con" ip4 $ip$mask gw4 $gw
@@ -34,7 +34,7 @@ hostnamectl set-hostname iwdm
 #Настройки сети
 echo -n > /etc/hosts
 echo "127.0.0.1       localhost" >> /etc/hosts
-echo "192.168.10.100  ad.demo.lab     ad" >> /etc/hosts
+echo "192.168.10.200  ad.demo.lab     ad" >> /etc/hosts
 echo "$ip   iwdm.demo.lab   iwdm" >> /etc/hosts
 
 #Входим в домен
