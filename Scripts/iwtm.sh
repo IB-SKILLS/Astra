@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 if [[ $(whoami) == "root" ]]; then
 
-#Переменные
-echo "Введите адрес TM"
-read TM
-echo "Введите имя компьютера"
-read PC
-
 #CD/DVD 1 se
 mkdir -p /srv/repo/smolensk/main
 mount /dev/sr0 /media/cdrom
@@ -51,10 +45,28 @@ apt -f install -y
 systemctl enable ssh.service
 systemctl start ssh.service
 
+#Имя соединения
+# $2 - IP, $3 - Маска, $4 - Gateway, $5 - DNS
+con="Проводное соединение 1"
+
+# Задаем адрес шлюза
+nmcli con mod "$con" ip4 $2$3 gw4 $4
+
+# Задаем адреса DNS
+nmcli con mod "$con" ipv4.dns "$5"
+
+# Отключаем DHCP, переводим в "ручной" режим настройки
+nmcli con mod "$con" ipv4.method manual
+nmcli con mod "$con" ipv6.method ignore
+nmcli -p con show "$con" | grep ipv4
+
+# Перезапускаем соединение для применения новых настроек
+nmcli con down "$con" ; nmcli con up "$con"
+
 #Настройка сети
 echo -n > /etc/hosts
 echo "127.0.0.1 localhost" >> /etc/hosts
-echo "$TM $PC" >> /etc/hosts
+echo "$2 $1" >> /etc/hosts
 
 #Перезагрузка
 read -p 'Перезагрузить ПК? ' in
