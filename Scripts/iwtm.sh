@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+if [[ $(whoami) == "root" ]]; then
 
 #Переменные
 echo "Введите адрес TM"
@@ -56,4 +57,12 @@ echo "127.0.0.1 localhost" >> /etc/hosts
 echo "$TM $PC" >> /etc/hosts
 
 #Перезагрузка
-echo "Please reboot and install TM"
+read -p 'Перезагрузить ПК? ' in
+if [[ "$in" == "y" ]]; then
+sudo reboot
+fi
+
+#Забыл имя ПК
+else
+echo "Ты забыл про имя ПК!"
+fi
