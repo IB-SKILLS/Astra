@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+if [[ "$1" != "" ]]; then
 if [[ $(whoami) == "root" ]]; then
 
 #CD/DVD 1 se
@@ -42,15 +43,19 @@ apt dist-upgrade -y
 apt -f install -y
 
 #SSH
-systemctl enable ssh.service
-systemctl start ssh.service
+apt install ssh -y
+systemctl enable ssh
+systemctl start ssh
 
 #Имя соединения
 # $2 - IP, $3 - Маска, $4 - Gateway, $5 - DNS
 con="Проводное соединение 1"
 
+# hostname
+hostnamectl set-hostname "$1"
+
 # Задаем адрес шлюза
-nmcli con mod "$con" ip4 $2$3 gw4 $4
+nmcli con mod "$con" ip4 $2/$3 gw4 $4
 
 # Задаем адреса DNS
 nmcli con mod "$con" ipv4.dns "$5"
@@ -77,4 +82,9 @@ fi
 #Выполнено не от рута
 else
 echo "Запусти скрипт через sudo!"
+fi
+
+#Забыл имя ПК
+else
+echo "Ты забыл про имя ПК!"
 fi
