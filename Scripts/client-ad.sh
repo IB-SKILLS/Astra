@@ -13,7 +13,7 @@ apt install astra-ad-sssd-client -y
 hostnamectl set-hostname "$1"
 
 # Задаем адрес шлюза
-nmcli con mod "$con" ip4 $2$3 gw4 $4
+nmcli con mod "$con" ip4 $2/$3 gw4 $4
 
 # Задаем адреса DNS
 nmcli con mod "$con" ipv4.dns "$5"
